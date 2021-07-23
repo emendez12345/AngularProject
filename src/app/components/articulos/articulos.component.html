@@ -1,0 +1,62 @@
+<form (ngSubmit)="insertData()">
+    <div class="form-group">
+        <label for="idcategoria">Id</label>
+        <input type="text" name="idcategoria" class="form-control" [(ngModel)]="articulo.idcategoria">
+    </div>
+    <div class="form-group">
+        <label for="codigo">Categoria</label>
+        <input type="number" name="codigo" class="form-control" [(ngModel)]="articulo.codigo">
+    </div>
+    <div class="form-group">
+        <label for="nombre">Articulo</label>
+        <input type="text" name="nombre" class="form-control" [(ngModel)]="articulo.nombre">
+    </div>
+    <div class="form-group">
+        <label for="stock">Stock</label>
+        <input type="number" name="stock" class="form-control" [(ngModel)]="articulo.stock">
+    </div>
+    <div class="form-group">
+        <label for="descripcion">Descripcion</label>
+        <input type="text" name="descripcion" class="form-control" [(ngModel)]="articulo.descripcion">
+    </div>
+    <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input type="text" name="imagen" class="form-control" [(ngModel)]="articulo.imagen">
+    </div>
+    <div class="form-group">
+        <label for="estado">Estado</label>
+        <input type="number" name="estado" class="form-control" [(ngModel)]="articulo.estado">
+    </div>
+
+    <button class="btn btn-dark btn-sm mt-4">Submit</button>
+</form>
+  
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Articulo</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Estado</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let articulo of articulos">
+            <th scope="row">{{articulo.idarticulo}}</th>
+            <td >{{articulo.nombre}}</td>
+            <td >{{articulo.idcategoria}}</td>
+            <td >{{articulo.stock}}</td>
+            <td >{{articulo.descripcion}}</td>
+            <td >{{articulo.imagen}}</td>
+            <td >{{articulo.estado}}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteData(articulo.idarticulo)">Eliminar</button>
+                <button class="btn btn-warning btn-sm mx-2" routerLink="ed/{{articulo.idarticulo}}">Editar</button>
+            </td>     
+        </tr>
+    </tbody>
+</table>
